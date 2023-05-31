@@ -1,0 +1,43 @@
+.physics11-header {
+    background: white;
+    max-height: 58px;
+}
+
+.head-image:hover {
+    cursor: pointer;
+}
+
+.section-item:hover {
+    cursor: pointer;
+}
+
+.e3s-footer {
+    text-align: center;
+    background-color: white;
+    padding: 12px 0;
+}
+
+
+.row {
+    padding: 10px;
+}
+.column-3 {
+    float: center;
+    width: 33%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding: 10px;
+  }
+
+
+.ant-btn-disabled, .ant-btn.disabled, .ant-btn[disabled], .ant-btn-disabled:hover, .ant-btn.disabled:hover, .ant-btn[disabled]:hover, .ant-btn-disabled:focus, .ant-btn.disabled:focus, .ant-btn[disabled]:focus, .ant-btn-disabled:active, .ant-btn.disabled:active, .ant-btn[disabled]:active, .ant-btn-disabled.active, .ant-btn.disabled.active, .ant-btn[disabled].active{
+    color: green;
+    background-color: #a8df65;
+}

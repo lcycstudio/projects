@@ -1,0 +1,8 @@
+.login-image {
+    /* background-image: url('../img/regi_1.jpg'); */
+    /* background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/regi_1.jpg"); */
+    background-position: center center;
+    max-height: 100%;
+    max-width: 100%;
+    /* background-repeat: no-repeat; */
+}

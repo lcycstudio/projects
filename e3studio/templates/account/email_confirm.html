@@ -1,0 +1,44 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account %}
+{% load static %}
+
+{% block head_title %}{% trans "Account Activation" %}{% endblock %}
+
+
+{% block content %}
+<div id="es-login-content-title">
+    Account Activation
+</div>
+<div id="es-login-content-form">
+
+    {% if confirmation %}
+    {% user_display confirmation.email_address.user as user_display %}
+    {% blocktrans with confirmation.email_address.email as email %}
+    <span>Please confirm the following email address to complete the registration:</span>
+    <p style="text-align: center;"><u>{{ email }}</u></p>
+    {% endblocktrans %}
+
+    <form method="post" action="{% url 'account_email_complete' confirmation.key %}">
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit">{% trans 'Confirm' %}</button>
+    </form>
+
+    {% else %}
+
+    {% url 'account_email_resend' as email_resend %}
+
+    {% blocktrans %}
+    <p>
+        This e-mail confirmation link expired or is invalid.
+        <a href="{{ email_resend }}">Please issue a new e-mail confirmation request</a>.
+    </p>
+    {% endblocktrans %}
+
+    {% endif %}
+
+</div>
+
+
+{% endblock %}

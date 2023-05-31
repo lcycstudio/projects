@@ -1,0 +1,78 @@
+{% autoescape off %}
+<div style="color:white;background-color:#dddddd;font-size:1rem;font-family:Urwdin, sans-serif;font-size:0.9rem">
+    <table style="width:640px;margin:0 auto;color:white;background-color:#1d38a3;">
+        <tbody>
+            <tr>
+                <td style="width:640px;padding:0px;">
+                    <div
+                        style="width:100%;margin:0 auto;margin-left:auto;padding-left:0;padding-right:0;background-color: #bee5d3;">
+                        <div style="width:310px;height:85px;float:left;background-color: #bee5d3;">
+                            <a href="http://www.e3studio.com"><img
+                                    src="https://res.cloudinary.com/hckhaid02/image/upload/v1611668533/e3studio/public/e3studio_logo_mwzgit.png"
+                                    alt=""
+                                    style="width:236px;height:auto;display:block;margin-left:30px;margin-right:auto;margin-top:23px" /></a>
+                        </div>
+                        <div
+                            style="width:283px;float:right;background-color: #bee5d3;text-align:right;padding-right:30px;">
+                            <p style="color:#8b5e83">Need help? <a href="https://www.securigene.com/contact/"
+                                    style="color:#8b5e83;text-decoration: none;">Contact
+                                    Us</a></p>
+                            <p style="color:#8b5e83">Customer Number:</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table
+        style="width:640px;height:auto;margin:3px auto;padding-left:0;padding-right:0;background-color: #1d38a3;display:block;color:white;">
+        <tbody>
+            <tr>
+                <td>
+                    <div style="margin: 60px 37px;color:white">
+                        <h2 style="color:white">A Message from SecuriGene Support</h2>
+                        <br />
+                        <p style="color:white">We received an access request to SecuriGene Support from user:</p>
+                        <p style="color:white">{{name}}</p>
+                        <br />
+                        <p style="color:white">User information upon making the request:
+                        </p>
+                        <p style="color:white">Name: {{name}}</p>
+                        <p style="color:white">Company: {{company}}</p>
+                        <p style="color:white">Email:
+                            <span style="background-color: white; color:#1d38a3;text-decoration: none;">
+                                {{email}}
+                            </span>
+                        </p>
+                        <p style="color:white">Phone: {{phone}}</p>
+                        <p style="color:white">Message:</p>
+                        <p style="color:white">{{message}}</p>
+                        <br />
+                        <p style="color:white">Please respond with login credentials within 1 business day.</p>
+                        <br />
+                        <h2 style="color:white">The SecuriGene Team</h2>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table
+        style="width:640px;height:auto;margin:3px auto;padding-left:0;padding-right:0;background-color: #1d38a3;display:block;color:white;">
+        <tbody>
+            <tr>
+                <td>
+                    <div style="margin: 30px 37px">
+                        <p style="font-size:small;color:white">
+                            Please do not reply to this email. Emails sent to this address will not be answered.
+                        </p>
+                        <br />
+                        <p style="font-size:small;color:white">Copyright © {{year}} SecuriGene Technologies Inc.</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+{% endautoescape %}

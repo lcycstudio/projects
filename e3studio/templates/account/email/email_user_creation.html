@@ -1,0 +1,26 @@
+{% autoescape off %}
+<div>
+    <div>
+        <h2>Greetings from Support SecuriGene!</h2>
+        <br />
+        <h3>Dear {{user.first_name}} {{user.last_name}},</h3>
+        <h3>
+            Thank you for registering with Support SecuriGene.
+        </h3>
+        <h3>Your account associated with email
+            address {{ user.email }} has been successfully registered and activated.
+        </h3>
+        <h3>The following information is
+            your login credentials:
+        </h3>
+        <h3>Your email: {{user.email}} </h3>
+        <h3>Your password: {{password}} </h3>
+        <h3>If you need to reset your password, you can either use <a href="{{domain}}/client/password/forget">Forget
+                Password</a> or <a href="{{domain}}/client/password/change">Reset Password</a>.</h3>
+        <h3>Please contact us at if you need assistance.</h3>
+        <br />
+        <h2>Thank you from Support SecuriGene!</h2>
+    </div>
+</div>
+
+{% endautoescape %}

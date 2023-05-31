@@ -1,0 +1,8 @@
+{% autoescape off %}
+Greetings from {{ domain_name }},
+
+Sorry we missed you {{ user.username }}. Please click on the link below to confirm your registration,
+{{ domain }}{% url 'account_email_activate' uidb64=uid keydb64=key %}
+
+Thank you from {{ domain_name}}!
+{% endautoescape %}

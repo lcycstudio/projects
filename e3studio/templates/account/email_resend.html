@@ -1,0 +1,81 @@
+{% extends "account/base.html" %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Email Activation" %}{% endblock %}
+
+
+{% block content %}
+<div id="sg-login-content-title">
+    Administration Activation
+</div>
+<div id="sg-login-content-form">
+    {% if text_message %}
+
+    <h2 style='text-align:center;font-weight:600;padding:8px;'>
+        {% trans "Email Resend" %}
+    </h2>
+    <p>{{ text_message }}</p>
+    <form method="post" action="{% url 'account_email_resend' %}" style="width:400px;margin: auto auto;">
+        {% csrf_token %}
+        {% render_field form.email_field class="form-control" %}
+        <br>
+        <button class="btn btn-primary" type="submit">Confirm</button>
+    </form>
+
+    {% elif sent_message %}
+
+    <span>{{ sent_message }}</span>
+    <p>Please check your email box to complete registration.</p>
+
+    {% elif activate_message %}
+
+    {{ site.domain |json_script:'site_domain' }}
+    <span>{{ activate_message }}</span>
+    <p>This page will be redirected to the login page in <span id="countdown" style="color:#fe6845;">20</span> seconds.
+    </p>
+
+    <div class="row">
+        <div class="col" style="text-align:center">
+            <button class="btn btn-primary" type="submit" onclick="myLogin()">Login Page</button>
+        </div>
+        <div class="col" style="text-align:center">
+            <button class="btn btn-primary" type="submit" onclick="myHome()">Return Home</button>
+        </div>
+    </div>
+
+    {% else %}
+
+    <h2 style='text-align:center;font-weight:600;padding:8px;'>{% trans "Email Invalid" %}</h2>
+    <p>{{ invalid_message }}</p>
+
+    {% endif %}
+
+</div>
+<script>
+    var timeleft = 19;
+    var downloadTimer = setInterval(function () {
+        document.getElementById("countdown").innerHTML = timeleft;
+        timeleft -= 1;
+        if (timeleft <= 0) {
+            clearInterval(downloadTimer);
+            document.getElementById("countdown").innerHTML = 1
+        }
+    }, 1000);
+    var js_domain = JSON.parse(document.getElementById('site_domain').textContent);
+
+    setTimeout(function () {
+        window.location.href = js_domain + "/sgadmin/registration/login";
+    }, 20000);
+
+    function myLogin() {
+        window.location.href = js_domain + "/sgadmin/registration/login";
+    };
+
+    function myHome() {
+        window.location.href = js_domain + "/";
+    };
+</script>
+{% endblock %}
