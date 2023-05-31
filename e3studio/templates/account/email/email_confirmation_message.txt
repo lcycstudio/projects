@@ -1,0 +1,16 @@
+{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Greeting from {{ site_name }}!
+
+
+Thank you {{user_display}} for signing up. Please click on the link to confirm your registration,
+{{ activate_url }}
+
+
+If the above link has expired, you can request another link to complete your registration via
+{{ site_domain }}/sguser/api_admin/sgadmin/registration/resend-email/
+
+
+Thank you from {{ site_name }}!
+{% endblocktrans %}
+{% endautoescape %}

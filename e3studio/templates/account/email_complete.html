@@ -1,0 +1,95 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Account Activation" %}{% endblock %}
+
+
+{% block content %}
+
+{{ site.domain | json_script:'site_domain' }}
+{{ confirmation.email_address.email | json_script:'user_email'}}
+
+<div id="sg-login-content-title">
+    Account Activation
+</div>
+<div id="sg-login-content-form">
+
+    {% if confirmation %}
+
+    {% user_display confirmation.email_address.user as user_display %}
+
+    {% blocktrans with confirmation.email_address.email as email and confirmation.email_address.user as user_display%}
+    <p>
+        Thank you for registering at EliteStudio.
+        <br />
+        Your account with email <u>{{ email }}</u> has been activated. <br />This page will
+        be redirected to the home page in <span id="countdown" style="color:#fe6845;">20</span> seconds.
+    </p>
+    {% endblocktrans %}
+
+
+    <div class="row">
+        <div class="col" style="text-align:center">
+        </div>
+        <div class="col" style="text-align:center">
+            <button class="btn btn-primary" type="submit" onclick="myLogin()">Login Page</button>
+        </div>
+        <div class="col" style="text-align:center">
+            <button class="btn btn-primary" type="submit" onclick="myHome()">Return Home</button>
+        </div>
+        <div class="col" style="text-align:center">
+        </div>
+    </div>
+
+
+
+    <!-- <div class="row">
+        <div class="col" style="text-align:center">
+            <button class="btn btn-primary" type="submit" onclick="myHome()">E3Studio</button>
+        </div>
+    </div> -->
+
+
+
+    {% else %}
+
+    {% url 'account_email' as email_url %}
+
+    {% blocktrans %}
+    <p>This e-mail confirmation link expired or is invalid. Please
+        <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.
+    </p>
+
+    {% endblocktrans %}
+
+    {% endif %}
+</div>
+<script>
+    var timeleft = 19;
+    var downloadTimer = setInterval(function () {
+        document.getElementById("countdown").innerHTML = timeleft;
+        timeleft -= 1;
+        if (timeleft <= 0) {
+            clearInterval(downloadTimer);
+            document.getElementById("countdown").innerHTML = 1
+        }
+    }, 1000);
+    var js_domain = JSON.parse(document.getElementById('site_domain').textContent);
+    var js_email = JSON.parse(document.getElementById('user_email').textContent);
+
+
+    setTimeout(function () {
+        window.location = "/";
+    }, 20000);
+
+    function myLogin() {
+        window.location = "/registration/login";
+    };
+
+    function myHome() {
+        window.location = "/";
+    };
+</script>
+{% endblock %}

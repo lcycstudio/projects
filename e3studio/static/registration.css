@@ -1,0 +1,92 @@
+/* Header */
+#es-reg-header {
+    background-color: wheat;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#es-reg-header-div {
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: wheat;
+    text-align: center;
+}
+
+#es-reg-header-text {
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: Roboto Slab, sans-serif;
+    color: black;
+}
+
+#es-reg-header-logo:hover {
+    cursor: pointer;
+}
+
+#es-reg-header-text .es-reg-header-text-lower {
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+/* Content */
+#es-reg-content {
+    position: relative;
+    display: block;
+    background-color: rgb(248, 235, 212);
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+}
+
+#es-login-content-div {
+    position: absolute;
+    display: block;
+    text-align: center;
+    width: 100%;
+    /* margin-top: 100px; */
+    top: 30%;
+    transform: translateY(-30%);
+}
+
+#es-login-content-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: black;
+}
+
+#es-login-content-form {
+    width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    margin: 3% auto auto;
+    border: 2px solid #16c79a;
+    border-radius: 10px;
+}
+
+/* Footer */
+#es-reg-footer {
+    position: absolute;
+    display: block;
+    background-color: wheat;
+    text-align: center;
+    color: black;
+    height: 5vh;
+    width: 100%;
+    bottom: 0%;
+}
+
+#es-reg-footer-div {
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+
+
+
+

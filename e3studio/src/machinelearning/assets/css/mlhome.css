@@ -1,0 +1,71 @@
+.physics11-header {
+    background: white;
+    height: auto;
+    width: 100%;
+}
+
+
+#head-div:hover {
+    cursor: pointer;
+}
+#head-div {
+    background-color: white;
+    
+}
+
+.section-item:hover {
+    cursor: pointer;
+}
+
+.e3s-footer {
+    text-align: center;
+    background-color: white;
+    padding: 12px 0;
+}
+
+
+.row {
+    padding: 10px;
+}
+.column-3 {
+    float: center;
+    width: 33%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding: 10px;
+  }
+
+
+.ant-btn-disabled, .ant-btn.disabled, .ant-btn[disabled], .ant-btn-disabled:hover, .ant-btn.disabled:hover, .ant-btn[disabled]:hover, .ant-btn-disabled:focus, .ant-btn.disabled:focus, .ant-btn[disabled]:focus, .ant-btn-disabled:active, .ant-btn.disabled:active, .ant-btn[disabled]:active, .ant-btn-disabled.active, .ant-btn.disabled.active, .ant-btn[disabled].active{
+    color: green;
+    background-color: #a8df65;
+}
+
+.submit-button {
+    margin: 5px 0 10px;
+    background-color: #1890ff;
+    color: white;
+    border-radius: 7%;
+    border: 1px solid #1890ff;
+    font-weight: 600;
+    padding: 5px 15px;
+}
+
+.submit-button:hover {
+    background-color: #40A9FF;
+}
+
+.submit-button[disabled]:hover {
+    cursor : not-allowed !important;
+}
+
+#ml-sider.ant-layout-sider-light .ant-layout-sider-trigger {
+    background-color: #E6F7FF
+}

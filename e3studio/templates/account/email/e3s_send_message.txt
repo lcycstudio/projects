@@ -1,0 +1,17 @@
+{% autoescape off %}
+Hello Lewis,
+
+You have received a message from {{ user }}.
+
+============================================
+
+{{ message }}
+
+============================================
+
+You can reply a message to his email: {{ email }}.
+
+All the best,
+E3 Studio 
+{{ domain }}
+{% endautoescape %}

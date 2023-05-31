@@ -1,0 +1,237 @@
+/* Sider */
+#math-app-logo-1 {
+    position: absolute;
+    clip: rect(0 80px 200px 0);
+    width: 100%;
+    height: 114px;
+}
+
+#left-trigger {
+    font-size: 24px;
+    /* padding: 0 8px 0 0; */
+    cursor: pointer;
+}
+
+#sider-lg-1 div.ant-layout-sider-trigger {
+    background-color: #E6F7FF;
+}
+#sider-lg-2 div.ant-layout-sider-trigger {
+    background-color: #E6F7FF;
+}
+
+/* Header */
+#math-app-header {
+    height: 114px;
+    background-color: white;
+    margin: 0 16px;
+    padding: 0;
+}
+
+#math-app-header-div{
+    width: 100%;
+}
+
+/* Home */
+#math-app-header-div-home{
+    width: 100%;
+    height: 180px;
+    background-color: white;
+}
+#math-app-header-div-home:hover{
+    cursor: pointer;
+}
+
+#math-app-header-image-home {
+    width: 100%;
+    position: absolute;
+    height: 180px;
+    object-fit: cover;
+    object-position: 0px;
+}
+
+#math-app-header-home {
+    height: 200px;
+    background-color: white;
+    padding: 0;
+}
+
+#math-app-header-text-home {
+    background-color: white;
+    text-align: center;
+    position: relative;
+    min-height: 58px;
+    height: auto;
+}
+
+#math-app-layout-home{
+    margin-top: 20px;
+    min-height: 633px;
+}
+
+/* Card */
+.math-app-card-home {
+    border: 1px solid;
+}
+.math-app-card-home:hover{
+    box-shadow: 5px 10px #888888;
+}
+
+/* Footer Home */
+#math-app-footer-home {
+    text-align: center;
+    background-color: white;
+    height: 45px;
+    padding: 12px 0;
+}
+
+/* Footer */
+#math-app-footer {
+    margin: 0 16px;
+    text-align: center;
+    background-color: white;
+    height: 48px;
+    padding: 16px 0;
+}
+
+/* BreadCrumb */
+.math-app-breadcrumb:hover {
+    cursor: pointer;
+}
+
+/* Content */
+.math-app-content{
+    padding: 16px 16px;
+    background-color: white;
+    min-height: 723px;
+}
+.latex-fields.form-control{
+    padding: 8px 12px 6px 12px;
+    font-size: 1.2rem;
+    height: 100%;
+}
+.latex-p {
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+.latex-note{
+    font-size: small;
+    color: rgb(179, 177, 177);
+    margin-bottom: 10px;
+}
+
+/* Button Color */
+.fig-buttons {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+.fig-buttons:hover{
+    border-color: #6cd66c;
+    background-color: #6cd66c;
+}
+
+.latex-input-find {
+    /* background-color: white; */
+    color: black;
+    border: none;
+    border-bottom: 1px solid;
+    width: 84px;
+}
+
+.sider-right {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+  
+/* Bottom left text */
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+.bottom-right:hover{
+    cursor: pointer;
+}
+
+/* .latex-fields{
+    min-width: 100px;
+    padding: 6px 12px;
+    border-radius: 6%;
+    border-color: #ccc;
+}
+.latex-fields:hover{
+    border-color: skyblue;
+}
+.latex-fields:active{
+    border-color: skyblue;
+} */
+
+  /* #components-layout-demo-custom-trigger #left-trigger:hover {
+    color: #1890ff;
+  }
+  
+  #components-layout-demo-custom-trigger .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+  } */
+
+@media (max-width: 576px){
+    #sider-lg-2 {
+        display:none;
+    }
+}
+
+@media (min-width: 577px){
+    #sider-xs-1 {
+        display: none;
+    }
+}
+
+
+
+
+
+/* .physics11-header {
+    background: white;
+    max-height: 58px;
+}
+
+.head-image:hover {
+    cursor: pointer;
+}
+
+.section-item:hover {
+    cursor: pointer;
+}
+
+.e3s-footer {
+    text-align: center;
+    background-color: white;
+    padding: 12px 0;
+}
+
+
+.row {
+    padding: 10px;
+} */
+/* .column-3 {
+    float: center;
+    width: 33%;
+    padding: 10px;
+    height: 300px; 
+  } */
+  
+  /* Clear floats after the columns */
+  /* .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding: 10px;
+  }
+
+
+.ant-btn-disabled, .ant-btn.disabled, .ant-btn[disabled], .ant-btn-disabled:hover, .ant-btn.disabled:hover, .ant-btn[disabled]:hover, .ant-btn-disabled:focus, .ant-btn.disabled:focus, .ant-btn[disabled]:focus, .ant-btn-disabled:active, .ant-btn.disabled:active, .ant-btn[disabled]:active, .ant-btn-disabled.active, .ant-btn.disabled.active, .ant-btn[disabled].active{
+    color: green;
+    background-color: #a8df65;
+} */
