@@ -1,0 +1,13 @@
+celery==5.2.7
+daphne==3.0.2
+Django==4.2.4
+django-cors-headers==3.13.0
+django-extensions==3.2.3
+django-redis==5.2.0
+django-rest-swagger==2.2.0
+django-storages==1.13.2
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
+ipython==8.14.0
+jupyter==1.0.0
+notebook==5.7.5

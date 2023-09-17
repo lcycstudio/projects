@@ -1,6 +1,6 @@
-# python_projects
+# Projects
 
-This repository contains Python projects that I did in the past.
+This repository contains projects that I did in the past.
 These projects could be either a full stack web application or a
 file pertaining a specific task. I will occassionally update this
 repository with new contents (projects in the past).
@@ -8,6 +8,7 @@ repository with new contents (projects in the past).
 
 #### Table of Contents
 - [Project E3 Studio](https://github.com/lcycstudio/python_projects/tree/master/e3studio)
+- [ToDo Application](https://github.com/lcycstudio/python_projects/tree/master/todo_app)
 
 
 
