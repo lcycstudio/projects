@@ -9,7 +9,7 @@ repository with new contents (projects in the past).
 #### Table of Contents
 - [Project E3 Studio](https://github.com/lcycstudio/python_projects/tree/master/e3studio)
 - [ToDo Application](https://github.com/lcycstudio/python_projects/tree/master/todo_app)
-
+- [Jupyter Notebook](https://github.com/lcycstudio/python-projects/tree/master/notebook)
 
 
 #### Disclaimer
