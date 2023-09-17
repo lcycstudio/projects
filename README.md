@@ -10,20 +10,22 @@ repository with new contents (projects in the past).
 - [Project E3 Studio](https://github.com/lcycstudio/python_projects/tree/master/e3studio)
 - [ToDo Application](https://github.com/lcycstudio/python_projects/tree/master/todo_app)
 - [Jupyter Notebook](https://github.com/lcycstudio/python-projects/tree/master/notebook)
+- [Full Stack App](https://github.com/lcycstudio/python-projects/tree/master/fullstack)
+- [Vue Google Map](https://github.com/lcycstudio/python-projects/tree/master/vue-google-map)
 
 
-#### Disclaimer
+### Disclaimer
 
 Most of the codes I wrote in the past are immature and rudimentary. I put these
 past projects here with the intention to showcase what I did and what I know,
 and I can feel your discomfort in seeing naive codes because they could be
-better than that. I appreicate your concern. Honestly, I don't really want to 
-improve the projects I did a long time ago, as long as we can understand what
-they mean. For new projects that I did recently, I will follow the coding
+better than that. I appreicate your concern. I don't really want to improve the
+projects that I did a long time ago. As long as we can understand what they mean,
+that's good enough. For new projects that I did recently, I will follow the coding
 standard to the best of my ability and make improvement along the way.
 
 
-#### The Zen of Python, by Tim Peters
+### The Zen of Python, by Tim Peters
 
 Beautiful is better than ugly. \
 Explicit is better than implicit. \

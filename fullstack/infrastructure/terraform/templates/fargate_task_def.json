@@ -1,0 +1,32 @@
+[
+    {
+      "name": "${container}",
+      "image": "${image}",
+      "networkMode": "awsvpc",
+      "essential": true,
+      "cpu": ${fargate_cpu},
+      "memory": ${fargate_memory},
+      "command": ${cmd},
+      "portMappings": [
+        {
+          "containerPort": ${port},
+          "hostPort": ${port}
+        }
+      ],
+      "environment": [
+        { "name": "CORE_AWS_REGION", "value": "${kv_region}" },
+        { "name": "CORE_AWS_SECRET", "value": "${kv_secret}" }
+      ],
+      "healthCheck": {
+          "command" : [ "CMD-SHELL", "curl -f http://localhost:${port}/service-check/ || exit 1" ]
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-group": "${log_group_name}",
+            "awslogs-region": "${log_region}",
+            "awslogs-stream-prefix": "${log_prefix}"
+        }
+      }
+    }
+  ]

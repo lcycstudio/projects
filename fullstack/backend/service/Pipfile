@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+gunicorn = "*"
+djongo = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
+django-storages = "*"
+django-ses = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+channels = "*"
+pgeocode = "*"
+celery = "*"
+boto3 = "*"
+twilio = "*"
+pymongo = "*"
+dnspython = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

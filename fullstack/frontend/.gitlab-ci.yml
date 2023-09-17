@@ -1,0 +1,113 @@
+# **************************************************************************
+# Build the React frontend; sync the build folder to the origin S3 bucket;
+# and invalidate the CloudFront cache.
+# **************************************************************************
+
+variables:
+  # All Environments
+  AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+  AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+  # Staging
+  SERVER_STAGING_CLOUDFRONT_DIST: $SERVER_STAGING_CLOUDFRONT_DIST
+  SERVER_STAGING_RECAPTCHA_KEY: $SERVER_STAGING_RECAPTCHA_KEY
+  SERVER_STAGING_REST_ENDPOINT: $SERVER_STAGING_REST_ENDPOINT
+  SERVER_STAGING_S3_BUCKET: $SERVER_STAGING_S3_BUCKET
+  SERVER_STAGING_WS_ENDPOINT: $SERVER_STAGING_WS_ENDPOINTSTAGING
+  SERVER_STAGING_JODIT: $SERVER_STAGING_JODIT
+  # Live
+  SERVER_LIVE_CLOUDFRONT_DIST: $SERVER_LIVE_CLOUDFRONT_DIST
+  SERVER_LIVE_RECAPTCHA_KEY: $SERVER_LIVE_RECAPTCHA_KEY
+  SERVER_LIVE_REST_ENDPOINT: $SERVER_LIVE_REST_ENDPOINT
+  SERVER_LIVE_S3_BUCKET: $SERVER_LIVE_S3_BUCKET
+  SERVER_LIVE_WS_ENDPOINT: $SERVER_LIVE_WS_ENDPOINT
+  SERVER_LIVE_JODIT: $SERVER_LIVE_JODIT
+
+stages:
+  - build
+  - deploy
+
+# TODO - can we merge the _staging & _live copies into one with variables?
+
+# *************************************
+# Staging Environment
+# *************************************
+build_staging:
+  stage: build
+  # Don't use buster-slim because need Python for node-gyp.
+  image: "node:14-buster"
+  script:
+    - export REACT_APP_RECAPTCHA_KEY="$SERVER_STAGING_RECAPTCHA_KEY"
+    - export REACT_APP_API_URL="$SERVER_STAGING_REST_ENDPOINT"
+    - export REACT_APP_WS_URL="$SERVER_STAGING_WS_ENDPOINT"
+    - export REACT_APP_JODIT_KEY="$SERVER_STAGING_JODIT"
+    - npm ci
+    # FIXME - CI=false to disable treating warnings as errors.
+    - CI=false npm run build
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - build
+  environment:
+    name: staging
+  only:
+    - staging
+
+deploy_staging:
+  stage: deploy
+  image: "debian:buster-slim"
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq curl unzip
+    - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    - unzip awscliv2.zip
+    - ./aws/install
+  script:
+    - aws s3 sync --acl "private" ./build s3://$SERVER_STAGING_S3_BUCKET
+    - aws cloudfront create-invalidation --distribution-id $SERVER_STAGING_CLOUDFRONT_DIST --paths '/*'
+  dependencies:
+    - build_staging
+  environment:
+    name: staging
+  only:
+    - staging
+
+# *************************************
+# Live Environment
+# *************************************
+build_live:
+  stage: build
+  # Don't use buster-slim because need Python for node-gyp.
+  image: "node:14-buster"
+  script:
+    - export REACT_APP_RECAPTCHA_KEY="$SERVER_LIVE_RECAPTCHA_KEY"
+    - export REACT_APP_API_URL="$SERVER_LIVE_REST_ENDPOINT"
+    - export REACT_APP_WS_URL="$SERVER_LIVE_WS_ENDPOINT"
+    - export REACT_APP_JODIT_KEY="$SERVER_LIVE_JODIT"
+    - npm ci
+    # FIXME - CI=false to disable treating warnings as errors.
+    - CI=false npm run build
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - build
+  environment:
+    name: live
+  only:
+    - master
+
+deploy_live:
+  stage: deploy
+  image: "debian:buster-slim"
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq curl unzip
+    - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    - unzip awscliv2.zip
+    - ./aws/install
+  script:
+    - aws s3 sync --acl "private" ./build s3://$SERVER_LIVE_S3_BUCKET
+    - aws cloudfront create-invalidation --distribution-id $SERVER_LIVE_CLOUDFRONT_DIST --paths '/*'
+  dependencies:
+    - build_live
+  environment:
+    name: live
+  only:
+    - master

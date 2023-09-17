@@ -1,0 +1,51 @@
+# Copy this into your ~/.ssh/config file per environment.
+# You may need to edit the IdentityFile is you're not using the default id_rsa.
+
+# ********************
+# server-live
+# ********************
+
+Host serverlive
+	User ubuntu
+	HostName live-bst.myproject.com
+	IdentityFile ~/.ssh/id_rsa
+	IdentitiesOnly yes
+
+Host serverlivejump
+	User ubuntu
+	HostName live-bst.myproject.com
+	LocalForward 54321 server-live-postgres.c8oshpmsruoo.us-east-1.rds.amazonaws.com:5432
+	LocalForward 63790 server-live-redis-001.hglusy.0001.use1.cache.amazonaws.com:6379
+	LogLevel VERBOSE
+	RequestTTY no
+	RemoteCommand cat
+	IdentityFile ~/.ssh/id_rsa
+	IdentitiesOnly yes
+
+Host serverlivedeveljump
+	User ubuntu
+	HostName live-bst.myproject.com
+	LocalForward 54321 server-live-postgres-devel.c8oshpmsruoo.us-east-1.rds.amazonaws.com:5432
+	LocalForward 63790 server-live-redis-devel-001.hglusy.0001.use1.cache.amazonaws.com:6379
+	LogLevel VERBOSE
+	RequestTTY no
+	RemoteCommand cat
+	IdentityFile ~/.ssh/id_rsa
+	IdentitiesOnly yes
+
+Host serverstaging
+	User ubuntu
+	HostName staging-bst.serverstaging.com
+	IdentityFile ~/.ssh/id_rsa
+	IdentitiesOnly yes
+
+Host serverstagingjump
+	User ubuntu
+	HostName staging-bst.serverstaging.com
+	LocalForward 54321 server-staging-postgres.c8oshpmsruoo.us-east-1.rds.amazonaws.com:5432
+	LocalForward 63790 server-staging-redis-001.hglusy.0001.use1.cache.amazonaws.com:6379
+	LogLevel VERBOSE
+	RequestTTY no
+	RemoteCommand cat
+	IdentityFile ~/.ssh/id_rsa
+	IdentitiesOnly yes

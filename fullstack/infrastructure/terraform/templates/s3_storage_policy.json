@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicGetObject",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Effect": "Allow",
+      "Resource": "${s3_arn}/*",
+      "Condition": {
+        "StringLike": {
+          "aws:Referer": ["http://*.${domain}/*", "https://*.${domain}/*", "http://localhost/*", "http://*.localhost/*"]
+        }
+      }
+    }
+  ]
+}
